@@ -115,7 +115,7 @@ header nav a,.menu a{font-size:.78rem !important}
 }
 </style>
 <style id="layout-defensive">
-html,body{overflow-x:hidden;max-width:100vw}
+body{overflow-x:clip;max-width:100vw}
 body>*{max-width:100vw}
 @media (min-width:901px){
   aside{position:relative}
@@ -126,6 +126,62 @@ body>*{max-width:100vw}
   aside{width:100% !important;position:static !important;height:auto !important}
   .navbar{flex-wrap:wrap}
 }
+</style>
+<style id="navbar-fixed-override">
+nav.navbar,.header-top,.main-header{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1010 !important}
+body{padding-top:60px}
+.hero,.hero-inner,header.hero{padding-top:1rem !important}
+@media (max-width:900px){body{padding-top:90px}}
+</style>
+<style id="sidebar-hover-fix-v2">
+/* Adaptativo: hover preserva color heredado (white en dark sidebar, dark en light) */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+/* Bg sutil que funciona en cualquier fondo */
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+aside .cat-sub-wrap a:hover{background:rgba(127,127,127,.08) !important}
+</style>
+<style id="cat-toggle-no-box">
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+.cat-arrow{display:inline-block}
+</style>
+<style id="nav-arrow-no-box">
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+</style>
+<style id="post-fixes-v2">
+/* Inline links visibles en prosa */
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn){color:var(--accent,#1d4ed8) !important;text-decoration:underline !important;text-decoration-color:rgba(29,78,216,.45);text-underline-offset:2px;font-weight:600}
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn):hover{text-decoration-color:currentColor;opacity:.85}
+/* Sidebar hover adaptive */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+/* Cat-toggle sin caja */
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+/* Nav-arrow sin caja */
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+/* Navbar compacto */
+.navbar{padding:.65rem 1rem !important}
+.navbar .nav{gap:.55rem !important}
+.nav-item{font-size:.74rem !important;letter-spacing:.01em !important}
+.logo-box,.brand-name,.brand{font-size:.82rem !important}
+/* Layout defensive */
+body{overflow-x:clip;max-width:100vw}
+body>*{max-width:100vw}
+</style>
+<style id="nav-fix-v3">
+nav.navbar, header nav, .nav-bar, .top-nav { font-size: 1rem !important; }
+nav.navbar a, header nav a, .nav-bar a, .top-nav a, .nav-cat-link, .nav-item a { font-size: 1rem !important; color: #FFFFFF !important; font-weight: 500 !important; }
+nav.navbar a:hover, header nav a:hover, .nav-cat-link:hover { color: #FCD34D !important; text-decoration: underline; }
+nav[aria-label="breadcrumb"], .crumb, .breadcrumb { color: rgba(255,255,255,.85) !important; font-size: .82rem !important; }
+nav[aria-label="breadcrumb"] a, .crumb a, .breadcrumb a { color: #FFFFFF !important; text-decoration: underline; font-weight: 600; }
+nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important; }
+.crumb a[href="/"], .breadcrumb a[href="/"], a.home-link { color: #FFFFFF !important; }
+.brand-name, .logo-text, .main, .brand { color: #FFFFFF !important; }
 </style>
 </head><body>
 
@@ -163,8 +219,6 @@ body>*{max-width:100vw}
 <p>Foundation engineering in Oakville demands a thorough understanding of the local geology, characterized by glacial till, silty clay deposits, and shale bedrock of the Queenston Formation. Any successful foundation design must account for the swelling potential of the underlying clay and the variable depth to competent rock. Our scope covers all phases, from initial desk studies to final design recommendations, strictly following the Ontario Building Code (OBC) and local municipal requirements. We begin with a targeted geotechnical <a href="/investigation/">investigation</a> to characterize subsurface conditions, which is critical for mitigating risks like differential settlement on the lacustrine clay plains prevalent in areas near Lake Ontario.</p>
 <p>Our technical methodology aligns with Canadian Standards Association (CSA) and ASTM International protocols to deliver reliable design parameters. We define soil stratigraphy and engineering properties through a combination of <a href="/cpt-test/">Cone Penetration Test (CPT)</a> profiling and disturbed sampling. The CPT data provides a continuous record of tip resistance and sleeve friction, which is essential for assessing the bearing capacity of the dense Halton Till. For cohesive strata, we correlate these readings with <a href="/lab-in-situ/">In-Situ</a> and laboratory index tests, including <a href="/atterberg-limits/">Atterberg limits</a> to precisely quantify the plasticity and potential volume change in the local red shale-derived clays. This integrated approach ensures that foundation recommendations meet the ultimate and serviceability limit states defined in the National Building Code of Canada.</p>
 <p>Oakville’s diverse building stock requires adaptive foundation solutions. For high-end residential structures near the waterfront, we often specify deep foundations to bypass compressible near-surface organics and reach bedrock, verified by confirming the rock quality designation. In contrast, for commercial developments along the Dundas corridor, we frequently optimize shallow foundation systems using the results from a nuclear <a href="/sand-cone-density/">field density test (sand cone method)</a> during construction to confirm 98% Standard Proctor compaction. For industrial projects, we complement the field data with a detailed <a href="/grain-size/">grain size analysis (sieve + hydrometer)</a> from our <a href="/laboratory/">laboratory</a> to assess the free-draining characteristics of granular fill, ensuring the long-term performance of footing pads beneath heavy crane loads.</p>
-<img src="/img/pilotes-1.webp" alt="Foundations in Oakville" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
-
 <p>Our process delivers a clear and actionable foundation report that transitions seamlessly from investigation to construction. We interpret the compiled soil data to provide allowable bearing pressures, estimated total and differential settlements, and rigorous earth pressure parameters for basement wall design. The final deliverable includes explicit construction monitoring protocols, such as proof-rolling subgrades and reinforcing steel inspections, to verify that the installed conditions match the design assumptions. By integrating local geological expertise with precise Canadian testing standards, we de-risk the foundation phase, ensuring your Oakville project is grounded on a bedrock of certainty and regulatory compliance.</p></div></section></main>
 </div>
 
@@ -184,7 +238,8 @@ body>*{max-width:100vw}
           L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",{
             attribution:"&copy; OpenStreetMap contributors &copy; CARTO",maxZoom:19,subdomains:"abcd"
           }).addTo(m);
-          L.circle([43.4474,-79.6667],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Oakville");
+          L.marker([43.4474,-79.6667],{icon:L.divIcon({html:'<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 36\" width=\"24\" height=\"36\"><path d=\"M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24c0-6.6-5.4-12-12-12z\" fill=\"#E11D48\" stroke=\"#FFF\" stroke-width=\"1.5\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#FFF\"/></svg>',className:'',iconSize:[24,36],iconAnchor:[12,36],popupAnchor:[0,-32]})}).addTo(m);
+L.circle([43.4474,-79.6667],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Oakville");
         })();
         </script>
         <div style="margin-top:.5rem;font-size:.78rem;color:#888;text-align:center">

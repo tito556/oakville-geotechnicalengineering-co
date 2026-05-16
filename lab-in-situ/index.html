@@ -115,7 +115,7 @@ header nav a,.menu a{font-size:.78rem !important}
 }
 </style>
 <style id="layout-defensive">
-html,body{overflow-x:hidden;max-width:100vw}
+body{overflow-x:clip;max-width:100vw}
 body>*{max-width:100vw}
 @media (min-width:901px){
   aside{position:relative}
@@ -126,6 +126,62 @@ body>*{max-width:100vw}
   aside{width:100% !important;position:static !important;height:auto !important}
   .navbar{flex-wrap:wrap}
 }
+</style>
+<style id="navbar-fixed-override">
+nav.navbar,.header-top,.main-header{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1010 !important}
+body{padding-top:60px}
+.hero,.hero-inner,header.hero{padding-top:1rem !important}
+@media (max-width:900px){body{padding-top:90px}}
+</style>
+<style id="sidebar-hover-fix-v2">
+/* Adaptativo: hover preserva color heredado (white en dark sidebar, dark en light) */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+/* Bg sutil que funciona en cualquier fondo */
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+aside .cat-sub-wrap a:hover{background:rgba(127,127,127,.08) !important}
+</style>
+<style id="cat-toggle-no-box">
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+.cat-arrow{display:inline-block}
+</style>
+<style id="nav-arrow-no-box">
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+</style>
+<style id="post-fixes-v2">
+/* Inline links visibles en prosa */
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn){color:var(--accent,#1d4ed8) !important;text-decoration:underline !important;text-decoration-color:rgba(29,78,216,.45);text-underline-offset:2px;font-weight:600}
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn):hover{text-decoration-color:currentColor;opacity:.85}
+/* Sidebar hover adaptive */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+/* Cat-toggle sin caja */
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+/* Nav-arrow sin caja */
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+/* Navbar compacto */
+.navbar{padding:.65rem 1rem !important}
+.navbar .nav{gap:.55rem !important}
+.nav-item{font-size:.74rem !important;letter-spacing:.01em !important}
+.logo-box,.brand-name,.brand{font-size:.82rem !important}
+/* Layout defensive */
+body{overflow-x:clip;max-width:100vw}
+body>*{max-width:100vw}
+</style>
+<style id="nav-fix-v3">
+nav.navbar, header nav, .nav-bar, .top-nav { font-size: 1rem !important; }
+nav.navbar a, header nav a, .nav-bar a, .top-nav a, .nav-cat-link, .nav-item a { font-size: 1rem !important; color: #FFFFFF !important; font-weight: 500 !important; }
+nav.navbar a:hover, header nav a:hover, .nav-cat-link:hover { color: #FCD34D !important; text-decoration: underline; }
+nav[aria-label="breadcrumb"], .crumb, .breadcrumb { color: rgba(255,255,255,.85) !important; font-size: .82rem !important; }
+nav[aria-label="breadcrumb"] a, .crumb a, .breadcrumb a { color: #FFFFFF !important; text-decoration: underline; font-weight: 600; }
+nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important; }
+.crumb a[href="/"], .breadcrumb a[href="/"], a.home-link { color: #FFFFFF !important; }
+.brand-name, .logo-text, .main, .brand { color: #FFFFFF !important; }
 </style>
 </head><body>
 
@@ -163,8 +219,6 @@ body>*{max-width:100vw}
 <p>In-Situ forms the backbone of reliable geotechnical characterization across Oakville, where the complex glacial stratigraphy demands precise, undisturbed data. Our comprehensive <a href="/investigation/">investigation</a> programs integrate direct physical measurements within the natural soil and rock environment, moving beyond the limitations of disturbed sampling alone. The local geology, dominated by Halton Till and glaciolacustrine deposits overlying Queenston Shale, presents conditions where strength, compressibility, and permeability can vary sharply over short distances. Adhering to the Ontario Building Code and standards set by the Professional Engineers of Ontario, our services provide the critical parameters required for safe foundation design, directly correlating field behavior with advanced <a href="/laboratory/">laboratory</a> analysis.</p>
 <p>Our primary methodologies align with CSA and ASTM International standards adapted for Canadian practice, ensuring defensible, repeatable results. The <a href="/cpt-test/">Cone Penetration Test (CPT)</a> offers a near-continuous profile of tip resistance, sleeve friction, and pore pressure, proving invaluable for delineating soft clay layers and assessing liquefaction potential in the seismic environment of Southern Ontario. For direct soil unit weight and compaction control, we employ the <a href="/sand-cone-density/">field density test (sand cone method)</a>, strictly following ASTM D1556 procedures. This method is indispensable for verifying engineered fill beneath footings and slabs. These in-situ techniques are coupled with our <a href="/grain-size/">grain size analysis</a> and <a href="/atterberg-limits/">Atterberg limits</a> testing to create a complete index profile of the subsurface materials, calibrated through physical ground truthing.</p>
 <p>Oakville’s development landscape, from deep excavations near the lakeshore to residential subdivisions on the Niagara Escarpment benchlands, relies heavily on targeted in-situ programs. Infrastructure upgrades along corridors like Trafalgar Road and new commercial builds in the Uptown Core frequently encounter variable water tables and sensitive silty clays. Our testing quantifies the undrained shear strength needed for shoring design and predicts settlement under load. For shallow <a href="/foundations/">foundations</a> on compacted granular pads, the sand cone density test provides the regulatory sign-off for construction, confirming that specified relative compaction percentages are achieved before concrete placement, mitigating future differential movement.</p>
-<img src="/img/ensayo-proctor-1.webp" alt="In-Situ in Oakville" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
-
 <p>A typical In-Situ engagement begins with a desktop review of surficial geology maps and historical borehole logs, followed by a field deployment tailored to the structural loads and site constraints. Data acquisition is rigorous, with real-time monitoring on CPT soundings and meticulous mass measurement for nuclear-free density determination. Deliverables include factual data plots, interpreted engineering parameters, and a comparative analysis with laboratory index tests, all compiled into a single, actionable geotechnical report. This integrated approach provides Oakville developers and municipal engineers with a clear, defensible basis for decision-making, reducing uncertainty in ground conditions and directly supporting cost-efficient, code-compliant foundation design.</p></div></section></main>
 </div>
 
@@ -184,7 +238,8 @@ body>*{max-width:100vw}
           L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",{
             attribution:"&copy; OpenStreetMap contributors &copy; CARTO",maxZoom:19,subdomains:"abcd"
           }).addTo(m);
-          L.circle([43.4474,-79.6667],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Oakville");
+          L.marker([43.4474,-79.6667],{icon:L.divIcon({html:'<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 36\" width=\"24\" height=\"36\"><path d=\"M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24c0-6.6-5.4-12-12-12z\" fill=\"#E11D48\" stroke=\"#FFF\" stroke-width=\"1.5\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#FFF\"/></svg>',className:'',iconSize:[24,36],iconAnchor:[12,36],popupAnchor:[0,-32]})}).addTo(m);
+L.circle([43.4474,-79.6667],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Oakville");
         })();
         </script>
         <div style="margin-top:.5rem;font-size:.78rem;color:#888;text-align:center">

@@ -115,7 +115,7 @@ header nav a,.menu a{font-size:.78rem !important}
 }
 </style>
 <style id="layout-defensive">
-html,body{overflow-x:hidden;max-width:100vw}
+body{overflow-x:clip;max-width:100vw}
 body>*{max-width:100vw}
 @media (min-width:901px){
   aside{position:relative}
@@ -126,6 +126,62 @@ body>*{max-width:100vw}
   aside{width:100% !important;position:static !important;height:auto !important}
   .navbar{flex-wrap:wrap}
 }
+</style>
+<style id="navbar-fixed-override">
+nav.navbar,.header-top,.main-header{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1010 !important}
+body{padding-top:60px}
+.hero,.hero-inner,header.hero{padding-top:1rem !important}
+@media (max-width:900px){body{padding-top:90px}}
+</style>
+<style id="sidebar-hover-fix-v2">
+/* Adaptativo: hover preserva color heredado (white en dark sidebar, dark en light) */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+/* Bg sutil que funciona en cualquier fondo */
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+aside .cat-sub-wrap a:hover{background:rgba(127,127,127,.08) !important}
+</style>
+<style id="cat-toggle-no-box">
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+.cat-arrow{display:inline-block}
+</style>
+<style id="nav-arrow-no-box">
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+</style>
+<style id="post-fixes-v2">
+/* Inline links visibles en prosa */
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn){color:var(--accent,#1d4ed8) !important;text-decoration:underline !important;text-decoration-color:rgba(29,78,216,.45);text-underline-offset:2px;font-weight:600}
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn):hover{text-decoration-color:currentColor;opacity:.85}
+/* Sidebar hover adaptive */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+/* Cat-toggle sin caja */
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+/* Nav-arrow sin caja */
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+/* Navbar compacto */
+.navbar{padding:.65rem 1rem !important}
+.navbar .nav{gap:.55rem !important}
+.nav-item{font-size:.74rem !important;letter-spacing:.01em !important}
+.logo-box,.brand-name,.brand{font-size:.82rem !important}
+/* Layout defensive */
+body{overflow-x:clip;max-width:100vw}
+body>*{max-width:100vw}
+</style>
+<style id="nav-fix-v3">
+nav.navbar, header nav, .nav-bar, .top-nav { font-size: 1rem !important; }
+nav.navbar a, header nav a, .nav-bar a, .top-nav a, .nav-cat-link, .nav-item a { font-size: 1rem !important; color: #FFFFFF !important; font-weight: 500 !important; }
+nav.navbar a:hover, header nav a:hover, .nav-cat-link:hover { color: #FCD34D !important; text-decoration: underline; }
+nav[aria-label="breadcrumb"], .crumb, .breadcrumb { color: rgba(255,255,255,.85) !important; font-size: .82rem !important; }
+nav[aria-label="breadcrumb"] a, .crumb a, .breadcrumb a { color: #FFFFFF !important; text-decoration: underline; font-weight: 600; }
+nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important; }
+.crumb a[href="/"], .breadcrumb a[href="/"], a.home-link { color: #FFFFFF !important; }
+.brand-name, .logo-text, .main, .brand { color: #FFFFFF !important; }
 </style>
 </head><body>
 
@@ -164,8 +220,6 @@ body>*{max-width:100vw}
 <p>Comprehensive slope assessment in Oakville begins with a clear understanding of the local geology and regulatory environment. The Niagara Escarpment and the deeply incised valleys of Bronte Creek and Sixteen Mile Creek create steep, often sensitive slopes composed of Ordovician shale, limestone, and overlying glacial till and lacustrine deposits. These formations are highly susceptible to erosion, shallow rotational failures, and the influence of groundwater seepage. Our work is guided by the Ontario Building Code (OBC) and the specific requirements of Conservation Halton, which governs development permits on or near unstable landforms. A proper <a href="/investigation/">investigation</a> must delineate the stratigraphy and identify any presence of the Queenston Formation, a notoriously weak shale that is a primary culprit in many regional slope instabilities.</p>
 <p>Our methodology relies on a combination of deep and shallow subsurface exploration calibrated to Canadian Standards Association (CSA) and ASTM International procedures. We deploy <a href="/cpt-test/">CPT (Cone Penetration Test)</a> soundings to provide continuous, high-resolution data on soil behaviour type and pore pressure dissipation, which is critical for identifying thin, weak clay seams that can act as failure planes. This is supplemented by <a href="/lab-in-situ/">In-Situ</a> using borehole shear vanes to measure the undrained shear strength of sensitive clay layers. To verify the compaction of engineered fill on the slope crest or terraces, we perform <a href="/sand-cone-density/">field density tests using the sand cone method</a>, ensuring compliance with OPS specifications for structural backfill. All field data is correlated with a robust suite of <a href="/laboratory/">laboratory</a> tests to quantify the engineering parameters of the native soils.</p>
 <p>Oakville's mix of established luxury residential neighbourhoods bordering ravines and new greenfield developments on the plateau creates a diverse range of projects. We are frequently engaged to perform stability analyses for custom home additions near the Glen Abbey and Morrison districts, where the proximity to valley walls requires a geotechnical assessment for site plan approval. For municipal infrastructure and subdivision development, our work involves analyzing the long-term stability of natural slopes under projected groundwater conditions. A foundational component of every analysis is the precise determination of index properties, starting with a <a href="/grain-size/">grain size analysis (sieve and hydrometer)</a> to classify the silts and clays, followed by the measurement of <a href="/atterberg-limits/">Atterberg limits</a>. These results directly inform the drained and undrained shear strength parameters used in limit equilibrium models.</p>
-<img src="/img/anclajes-2.webp" alt="Slopes in Oakville" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
-
 <p>Our process delivers a clear, actionable slope stability report that moves beyond generic recommendations. We integrate the interpreted subsurface model into a Limit Equilibrium Method (LEM) analysis, typically using software like Slide2 or Slope/W, to calculate a quantitative Factor of Safety (FoS) compliant with the minimum FoS of 1.5 for long-term static conditions as recommended by Canadian Foundation Engineering Manual guidelines. The final deliverable provides a geotechnical opinion on slope stability, identifies hazard zones, and prescribes mitigation measures such as regrading, subsurface drainage, or structural retaining systems. For sites where slope movements could impact planned structures, we work seamlessly with our <a href="/foundations/">foundations</a> engineering team to design deep foundation elements that bypass the zone of influence, ensuring your project is founded on stable ground with manageable long-term risk.</p></div></section></main>
 </div>
 
@@ -185,7 +239,8 @@ body>*{max-width:100vw}
           L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",{
             attribution:"&copy; OpenStreetMap contributors &copy; CARTO",maxZoom:19,subdomains:"abcd"
           }).addTo(m);
-          L.circle([43.4474,-79.6667],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Oakville");
+          L.marker([43.4474,-79.6667],{icon:L.divIcon({html:'<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 36\" width=\"24\" height=\"36\"><path d=\"M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24c0-6.6-5.4-12-12-12z\" fill=\"#E11D48\" stroke=\"#FFF\" stroke-width=\"1.5\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#FFF\"/></svg>',className:'',iconSize:[24,36],iconAnchor:[12,36],popupAnchor:[0,-32]})}).addTo(m);
+L.circle([43.4474,-79.6667],{radius:5000,color:'#171717',weight:2,fillColor:'#404040',fillOpacity:0.18}).addTo(m).bindPopup("Oakville");
         })();
         </script>
         <div style="margin-top:.5rem;font-size:.78rem;color:#888;text-align:center">
